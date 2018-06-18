@@ -163,19 +163,6 @@ C&lt;<span class='cpp-type'>long</span>, <span class='cpp-type'>float</span>, <s
 </table>
 </blockquote>
 
-<blockquote>
-<pre>
-<span class='keyword'>template</span> &lt;<span class='keyword'>class</span> T, <span class='keyword'>class</span> Allocator = std::allocator&lt;T&gt;&gt;
-<span class='keyword'>class</span> LinkedList
-{
-  <span class='keyword'>struct</span> internal_node;
-
-  <span class='keyword'>using</span> internal_allocator_type = std::rebind_t&lt;Allocator, internal_node&gt;;
-
-  ...
-};
-</pre>
-</blockquote>
 
 <H2>II. Impact On the Standard</H2>
 
