@@ -675,8 +675,7 @@ or an <tt>error</tt> object transporting any of these or an error object transpo
 </p>
 <p>
 Per the above discussion of POSIX error codes as insuitable for a generic error mechanism, I would alternatively propose that <tt>generic_domain</tt> be changed to <tt>posix_domain</tt>, and <tt>dynamic_exception_code_domain</tt> be reworked into an error_domain for generic application-level error codes, including individual codes
-for each standard C++ exception type.  Additionally, I would propose including <tt>system_domain</tt>, which behaves similarly to <tt>std::system_category</tt>, and
-maps Operating System API errors to the set of POSIX errors defined in <tt>std::errc</tt>.
+for each standard C++ exception type.  Additionally, I would propose including <tt>system_domain</tt> which, similarly to the current <tt>std::system_category</tt>, transports error codes returned from an Operating System API and provides semantic comparison to the portable set of POSIX errors defined in <tt>std::errc</tt>.
 </p>
 <br>
 <br>
