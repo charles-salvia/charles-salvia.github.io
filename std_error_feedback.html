@@ -89,7 +89,7 @@ Both <tt>std::unique_ptr</tt> and <tt>std::shared_ptr</tt> could fit this requir
 </p>
 <p>
 An <tt>std::error</tt> object could then easily contain either an integral-type error code, or arbitrarily rich information passed
-	in as a type-erased smart pointer which would be <i>move-relocated</i> into the pointer-sized storage contained in the
+in as a type-erased smart pointer which would be <i>move-relocated</i> into the pointer-sized storage contained in the
 <tt>std::error</tt> object.  An <tt>std::exception_ptr</tt>, if implemented such that it is no larger than a raw pointer, could also
 be transported efficiently in an <tt>std::error</tt>.
 </p>
