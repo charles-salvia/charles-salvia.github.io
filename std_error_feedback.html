@@ -601,7 +601,7 @@ as well as the destructor, for some arbitrary type T:</p>
       }
 
       <b>template</b> &lt;<b>class</b> T&gt;
-      <b>static</b> void destructor(error& e) <b>noexcept</b>
+      <b>static</b> <tt>void</tt> destructor(error& e) <b>noexcept</b>
       {
          <span style='color:gray'><i>unspecified_erased_error_ref</i></span> value = <span style='color:gray'>/* unspecified: get reference to internal storage */</span>
          std::launder(<b>reinterpret_cast</b>&lt;T*&gt;(&value.storage))-&gt;~T();
