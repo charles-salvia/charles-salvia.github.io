@@ -215,7 +215,7 @@ converted to an <tt>std::error</tt> can be tested for weak-equality or semantic 
 <p>
 It turns out that providing mappings from the generic set of <tt>std::errc</tt> enums to the set of standard C++ dynamic exceptions is 
 not easy to do in a way that results in particularly useful error mappings.  At first glance it may seem promising: we can map <tt>std::invalid_argument</tt>
-to <tt>std::errc::invalid_argument</tt> of course, <tt>std::bad_alloc</tt> to <tt>std::errc::out_of_memory</tt>, and <tt>std::domain_error</tt> to 
+to <tt>std::errc::invalid_argument</tt> of course, <tt>std::bad_alloc</tt> to <tt>std::errc::not_enough_memory</tt>, and <tt>std::domain_error</tt> to 
 <tt>std::errc::argument_out_of_domain</tt>.
 </p>
 <p>
