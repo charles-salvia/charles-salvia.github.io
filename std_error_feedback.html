@@ -403,8 +403,9 @@ an error_domain.  In [<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/paper
 a "moved-from" <tt>error</tt> has a null domain pointer.  However, <tt>error</tt> objects in this implementation are copy-constructible; errors that transport
 non-trivially-copyable or non-trivially-movable types will provide polymorphic move and copy constructors.  It is up to the domain-specific move constructor to
 decide how to represent a "moved-from" type-erased error value internally.  Therefore, there is no reason to allow an error object to contain a null domain pointer.
-
-With null domain pointers disallowed, and tithout the requirement that all error domains provide a mapping to a set of universal generic error codes, 
+</p>
+<p>
+With null domain pointers disallowed, and without the requirement that all error domains provide a mapping to a set of universal generic error codes, 
 the weak-equality comparison algorithm implemented here is simply:
 </p>
 <blockquote>
