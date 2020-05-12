@@ -449,6 +449,10 @@ are the <tt>error_domain</tt> base class and of course <tt>error</tt> itself:
 <tt>constexpr</tt> <tt>bool</tt> <b>operator</b> == (<tt>const</tt> error_domain& lhs, <tt>const</tt> error_domain& rhs) <b>noexcept</b>;
 <tt>constexpr</tt> <tt>bool</tt> <b>operator</b> != (<tt>const</tt> error_domain& lhs, <tt>const</tt> error_domain& rhs) <b>noexcept</b>;
 
+// Exposition only 
+<b>template</b> &lt;<b>class</b> T&gt;
+<b>concept</b> TypeErasable = is_trivially_relocatable_v&lt;T&gt; && (<b>sizeof</b>(T) &lt;= <b>sizeof</b>(std::<tt>intptr_t</tt>));
+
 <b>class</b> error
 {
 <b>public</b>:
