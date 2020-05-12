@@ -118,7 +118,7 @@ This design also requires that <tt>std::error</tt> itself is move-only.
 Should <tt>std::error</tt> be required to be move-only?  The original proposal 
 [<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0709r4.pdf">P0709</a>] doesn't explicitly say that
 <tt>std::error</tt> is move-only; rather, it only specifies that <tt>std::error</tt> should be trivially relocatable.  However,
-this doesn't necessarily mean <tt>std::error</tt> must be move-only.  A copy constructor for some erased type <tt>T</tt> could
+this doesn't necessarily mean <tt>std::error</tt> must be move-only.  A generic copy constructor for some erased type <tt>T</tt> could
 be safely implemented by copy-constructing a temporary, and then move-relocating it into the destination storage.  Regardless, the current
 <tt>status_code</tt> based implementation of <tt>std::error</tt> proposed in 
 [<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1028r3.pdf">P1028</a>] is indeed
