@@ -355,7 +355,7 @@ The submitted implementation differs with the current <tt>status_code</tt> based
 [<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1028r3.pdf">P1028</a>] as follows:
 
 <ol>
-<li>This implementation is just a simple, stand-alone implementation of <tt>std::error</tt> - it does not implement any larger status code or error code library</li>
+<li>This implementation is a stand-alone implementation of <tt>std::error</tt> - it does not implement any larger status code or error code library</li>
 <li>This implementation makes <tt>std::error</tt> copy-constructible instead of move-only</li>
 <li>This implementation does not require all error domains to be able to map errors to a universal "generic" error code</li>
 <li>For the purpose of providing error code enums used for weak-equality comparisons with <tt>std::error</tt> objects containing a thrown dynamic exception,
