@@ -519,13 +519,13 @@ a TypeErasable object and an error_domain.
 <b>class</b> error_value&lt;<tt>void</tt>&gt;
 {
 <b>public</b>:
-   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> <span style='color:gray'>/* std::remove_cvref_t&lt;T&gt; is TypeErasable */</span>
+   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> TypeErasable&lt;std::remove_cvref_t&lt;T&gt;&gt;
    <tt>constexpr</tt> error_value(T&& v) <b>noexcept</b>(<span style='color:gray'>/* unspecified */</span>);
 
-   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> <span style='color:gray'>/* T is TypeErasable */</span>
+   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> TypeErasable&lt;T&gt;
    <tt>constexpr</tt> error_value(const error_value&lt;T&gt;& v) <b>noexcept</b>(<span style='color:gray'>/* unspecified */</span>);
 
-   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> <span style='color:gray'>/* T is TypeErasable */</span>
+   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> TypeErasable&lt;T&gt;
    <tt>constexpr</tt> error_value(error_value&lt;T&gt;&& v) <b>noexcept</b>(<span style='color:gray'>/* unspecified */</span>)
 };
 </pre>
