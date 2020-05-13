@@ -460,10 +460,10 @@ The most significant types specified here are the <tt>error</tt> type itself, al
    <tt>constexpr</tt> error(const error& e);
    <tt>constexpr</tt> error(error&& e);
 
-   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> <span style='color:gray'>/* T is TypeErasable */</span>
+   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> TypeErasable&lt;T&gt;
    <tt>constexpr</tt> error(<tt>const</tt> error_value&lt;T&gt;& v, <tt>const</tt> error_domain& d) <b>noexcept</b>;
 
-   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> <span style='color:gray'>/* T is TypeErasable */</span>
+   <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> TypeErasable&lt;T&gt;
    <tt>constexpr</tt> error(error_value&lt;T&gt;&& v, <tt>const</tt> error_domain& d) <b>noexcept</b>;
 
    <tt>constexpr</tt> error(error_value&lt;&gt; v, <tt>const</tt> error_domain& d) <b>noexcept</b>;
