@@ -461,10 +461,14 @@ The most significant types specified here are the <tt>error</tt> type itself, al
    <tt>constexpr</tt> error(error&& e);
 
    <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> TypeErasable&lt;T&gt;
-   <tt>constexpr</tt> error(<tt>const</tt> error_value&lt;T&gt;& v, <tt>const</tt> error_domain& d) <b>noexcept</b>;
+   <tt>constexpr</tt> error(<tt>const</tt> error_value&lt;T&gt;& v, <tt>const</tt> error_domain& d) <b>noexcept</b>(
+      std::is_nothrow_copy_constructible_v&lt;T&gt; && std::is_nothrow_move_constructible_v&lt;T&gt;
+   );
 
    <b>template</b> &lt;<b>class</b> T&gt; <b>requires</b> TypeErasable&lt;T&gt;
-   <tt>constexpr</tt> error(error_value&lt;T&gt;&& v, <tt>const</tt> error_domain& d) <b>noexcept</b>;
+   <tt>constexpr</tt> error(error_value&lt;T&gt;&& v, <tt>const</tt> error_domain& d) <b>noexcept</b>(
+      std::is_nothrow_move_constructible_v&lt;T&gt;
+   );
 
    <tt>constexpr</tt> error(error_value&lt;&gt; v, <tt>const</tt> error_domain& d) <b>noexcept</b>;
 
