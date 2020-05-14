@@ -14,11 +14,10 @@
       div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
       ul.task-list{list-style: none;}
       tt {color:#05526b}
-      tt {color:#05526b}
       table {border-collapse: collapse; border:none;}
       td { color:#3b3935; padding-left: 1em; padding-top:0.2em; padding-bottom: 0.2em;}
       pre { background-color: #fafafa; padding: 1em;  };
-      .e1 { color:#05526b; font-weight: bold; } 
+      .e1 { color:#05526b; font-weight: bold; }
       .e2 { color:#940909; font-weight: bold; }
       pre > code.sourceCode { white-space: pre; position: relative; }
       pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
@@ -664,19 +663,19 @@ Example usage/godbolt link: <a href="https://godbolt.org/z/8o1Yg6">godbolt.org/z
 <p>With regard to the weak-equality comparison algorithm, this implementation submits a simpler algorithm than the algorithm implemented in <span class="citation" data-cites="P1028">[<a href="#ref-P1028" role="doc-biblioref">P1028R3</a>]</span>. The algorithm implemented in <span class="citation" data-cites="P1028">[<a href="#ref-P1028" role="doc-biblioref">P1028R3</a>]</span> is as follows:</p>
 <blockquote>
 <pre>
-Given: <tt>error</tt> <span class="e1">E1</span> with <tt>error_domain</tt> <span class="e1">D1</span>, and <tt>error</tt> <span class="e2">E2</span> with <tt>error_domain</tt> <span class="e2">D2</span>
+Given: <tt>error</tt> <tt><b>E1</b></tt> with <tt>error_domain</tt> <tt><b>D1</b></tt>, and <tt>error</tt> <span class="e2">E2</span> with <tt>error_domain</tt> <span class="e2">D2</span>
 
-If both <span class="e1">D1</span> and <span class="e2">D2</span> are non-null:
-   If <span class="e1">D1</span>.<tt>WeakEqualityCompare</tt>(<span class="e1">E1</span>, <span class="e2">E2</span>): return <tt>true</tt>
-   Else If <span class="e2">D2</span>.<tt>WeakEqualityCompare</tt>(<span class="e2">E2</span>, <span class="e1">E1</span>): return <tt>true</tt>
+If both <tt><b>D1</b></tt> and <span class="e2">D2</span> are non-null:
+   If <tt><b>D1</b></tt>.<tt>WeakEqualityCompare</tt>(<tt><b>E1</b></tt>, <span class="e2">E2</span>): return <tt>true</tt>
+   Else If <span class="e2">D2</span>.<tt>WeakEqualityCompare</tt>(<span class="e2">E2</span>, <tt><b>E1</b></tt>): return <tt>true</tt>
    Else:
       Convert <span class="e2">E2</span> to <tt>GenericCode</tt> <span class="e2">G2</span>
-      If <span class="e1">D1</span>.<tt>WeakEqualityCompare</tt>(<span class="e1">E1</span>, <span class="e2">G2</span>): return <tt>true</tt>
+      If <tt><b>D1</b></tt>.<tt>WeakEqualityCompare</tt>(<tt><b>E1</b></tt>, <span class="e2">G2</span>): return <tt>true</tt>
 
-      Convert <span class="e1">E1</span> to <tt>GenericCode</tt> <span class="e1">G1</span>
-      If <span class="e2">D2</span>.<tt>WeakEqualityCompare</tt>(<span class="e2">E2</span>, <span class="e1">G1</span>): return <tt>true</tt>
+      Convert <tt><b>E1</b></tt> to <tt>GenericCode</tt> <tt><b>G1</b></tt>
+      If <span class="e2">D2</span>.<tt>WeakEqualityCompare</tt>(<span class="e2">E2</span>, <tt><b>G1</b></tt>): return <tt>true</tt>
 
-Return <tt>true</tt> if both <span class="e1">D1</span> and <span class="e2">D2</span> are null
+return <tt>true</tt> if both <tt><b>D1</b></tt> and <span class="e2">D2</span> are null
 </pre>
 </blockquote>
 <p>Note this algorithm requires error domains to implement conversion from some arbitrary error type to a universal set of “generic” errors (specified in <span class="citation" data-cites="P1028">[<a href="#ref-P1028" role="doc-biblioref">P1028R3</a>]</span> as identical to the POSIX error codes defined in <code class="sourceCode default">&lt;system_error&gt;</code>). The implementation submitted here does not require that all error types must be representable by a single set of generic codes. I have argued that this is very likely impractical for certain error domains, and if enforced would merely lead to many useless mappings to “generic” codes that convey close to zero information about the semantics of the original error.</p>
@@ -684,10 +683,10 @@ Return <tt>true</tt> if both <span class="e1">D1</span> and <span class="e2">D2<
 <p>With null domain pointers disallowed, and without the requirement that all error domains provide a mapping to a set of universal generic error codes, the weak-equality comparison algorithm implemented here is simply:</p>
 <blockquote>
 <pre>
-Given: <tt>error</tt> <span class="e1">E1</span> with <tt>error_domain</tt> <span class="e1">D1</span>, and <tt>error</tt> <span class="e2">E2</span> with <tt>error_domain</tt> <span class="e2">D2</span>
+Given: <tt>error</tt> <tt><b>E1</b></tt> with <tt>error_domain</tt> <tt><b>D1</b></tt>, and <tt>error</tt> <span class="e2">E2</span> with <tt>error_domain</tt> <span class="e2">D2</span>
 
-If <span class="e1">D1</span>.<tt>WeakEqualityCompare</tt>(<span class="e1">E1</span>, <span class="e2">E2</span>): return <tt>true</tt>
-Else If <span class="e2">D2</span>.<tt>WeakEqualityCompare</tt>(<span class="e2">E2</span>, <span class="e1">E1</span>): return <tt>true</tt>
+If <tt><b>D1</b></tt>.<tt>WeakEqualityCompare</tt>(<tt><b>E1</b></tt>, <span class="e2">E2</span>): return <tt>true</tt>
+Else If <span class="e2">D2</span>.<tt>WeakEqualityCompare</tt>(<span class="e2">E2</span>, <tt><b>E1</b></tt>): return <tt>true</tt>
 return <tt>false</tt>
 </pre>
 </blockquote>
